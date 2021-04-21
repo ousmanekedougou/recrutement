@@ -2,7 +2,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
 		<link rel="shortcut icon" href="{{asset('user/img/3ccs.jpg')}}">
-		<!-- <link rel="shortcut icon" href="{{asset('user/img/fav.png')}}"> -->
 		<!-- Author Meta -->
 		<meta name="author" content="colorlib">
 		<!-- Meta Description -->
