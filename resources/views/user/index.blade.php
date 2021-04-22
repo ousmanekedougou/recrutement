@@ -211,6 +211,32 @@
 
 							</div>
 							<div class="col-md-6">
+
+							<div class="input-group-icon mt-10">
+									<label class="label_form" for="etablissement">Votre etablissement</label>
+									<div class="form-select">
+										<select  class="form-control select2 @error('etablissement') is-invalid @enderror" multiple="multiple" data-placeholder="Selectionne votre ou vos etablissement(s)" name="etablissement[]">
+												<option desabled> Publique </option>
+											@foreach($etablissements as $etablissement)
+												@if($etablissement->status == 1)
+													<option style="margin-left: 20px;" value="{{$etablissement->id}}"> => {{$etablissement->name}}</option>
+												@endif
+											@endforeach
+
+											<option desabled>Privee</option>
+											@foreach($etablissements as $etablissement)
+												@if($etablissement->status == 2)
+													<option value="{{$etablissement->id}}">{{$etablissement->name}}</option>
+												@endif
+											@endforeach
+										</select>
+										@error('etablissement')
+											<span class="invalid-feedback" role="alert">
+												<strong class="message_error">{{ $message }}</strong>
+											</span>
+										@enderror
+									</div>
+								</div>
 								
 								<div class="input-group-icon mt-10">
 									<label class="label_form" for="filliere">Votre filliere</label>
@@ -238,31 +264,8 @@
 									</div>
 								</div>
 
-								<div class="input-group-icon mt-10">
-									<label class="label_form" for="etablissement">Votre etablissement</label>
-									<div class="form-select">
-										<select  class="form-control select2 @error('etablissement') is-invalid @enderror" multiple="multiple" data-placeholder="Selectionne votre ou vos etablissement(s)" name="etablissement[]">
-												<option desabled> Publique </option>
-											@foreach($etablissements as $etablissement)
-												@if($etablissement->status == 1)
-													<option style="margin-left: 20px;" value="{{$etablissement->id}}"> => {{$etablissement->name}}</option>
-												@endif
-											@endforeach
+								
 
-											<option desabled>Privee</option>
-											@foreach($etablissements as $etablissement)
-												@if($etablissement->status == 2)
-													<option value="{{$etablissement->id}}">{{$etablissement->name}}</option>
-												@endif
-											@endforeach
-										</select>
-										@error('etablissement')
-											<span class="invalid-feedback" role="alert">
-												<strong class="message_error">{{ $message }}</strong>
-											</span>
-										@enderror
-									</div>
-								</div>
 								<div class="mt-10">
 									<label class="label_form" for="cni">Photocopie de votre carte d'identite en pdf</label>
 									<input type="file" name="cni" value="{{ old('cni') }}" class="form-control @error('cni') is-invalid @enderror" placeholder="" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" required class="single-input">
