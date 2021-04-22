@@ -51,7 +51,7 @@
 						<div class="col-lg-4">
 							<div class="single-feature">
 								<div class="title">
-									<h4>Codification</h4>
+									<h4>Mot du president</h4>
 								</div>
 								<div class="desc-wrap">
 									<p>
@@ -64,7 +64,7 @@
 						<div class="col-lg-4">
 							<div class="single-feature">
 								<div class="title">
-									<h4>Examen & Concours</h4>
+									<h4>Un contenu exemple</h4>
 								</div>
 								<div class="desc-wrap">
 									<p>
@@ -77,7 +77,7 @@
 						<div class="col-lg-4">
 							<div class="single-feature">
 								<div class="title">
-									<h4>Etudes & Bourse</h4>
+									<h4>Un contenu exemple</h4>
 								</div>
 								<div class="desc-wrap">
 									<p>
