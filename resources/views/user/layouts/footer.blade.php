@@ -16,9 +16,9 @@
 	<!-- End cta-two Area -->
 	
 <!-- start footer Area -->		
-        <footer class="footer-area section-gap">
+        <footer class="footer-area section-gap" style="padding: 0;">
 				<div class="container">
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col-lg-2 col-md-6 col-sm-6">
 							<div class="single-footer-widget">
 								<h4>Top Products</h4>
@@ -82,17 +82,18 @@
 								</div>
 							</div>
 						</div>											
-					</div>
-					<div class="footer-bottom row align-items-center justify-content-between">
-						<p class="footer-text m-0 col-lg-6 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy; 2020-{{ Carbon\carbon::now()->year }} Version Beta & | Vitrine <i class="fa fa-heart-o" aria-hidden="true"></i> De <span class="text-primary"> L'AEERK</span> <a style="opacity: 0;" href="{{ route('login') }}" target="_blank">L'AEERK</a>
+					</div> -->
+					<div class="footer-bottom row align-items-center justify-content-between"  style="padding: 20px;">
+						<p class="footer-text m-0 col-lg-12 col-md-12 text-center">
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy; 2020-{{ Carbon\carbon::now()->year }} Version Beta | Plateforme  De  <a href="{{ route('login') }}" target="_blank"><span class="text-primary"> L'AEERK</span></a> <span >Designed by Ousmane Diallo</span>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-						<div class="col-lg-6 col-sm-12 footer-social">
+						<!-- <div class="col-lg-6 col-sm-12 footer-social">
 							<a href="#"><i class="fa fa-facebook"></i></a>
 							<a href="#"><i class="fa fa-twitter"></i></a>
 							<a href="#"><i class="fa fa-instagram"></i></a>
 							<a href="#"><i class="fa fa-youtube"></i></a>
-						</div>
+						</div> -->
 					</div>						
 				</div>
 			</footer>	

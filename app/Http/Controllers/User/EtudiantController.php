@@ -19,12 +19,15 @@ class EtudiantController extends Controller
             'lieu' => 'required|string',
             'niveau' => 'required|string',
             'commune' => 'required|numeric',
+            'filliere' => 'required|string',
+            'etablissement' => 'required|string',
+            'status' => 'required|string',
             'cni' => 'required|mimes:PDF,pdf',
             'curiculum' => 'required|mimes:pdf,PDF',
-            'image' => 'required|dimensions:min_width=50,min_height=100|image | mimes:jpeg,png,jpg,gif,ijf',
+            'image' => 'required|image | mimes:jpeg,png,jpg,gif,ijf,PNG,JPEG,JPG,GIF,IJF',
             'diplome' => 'required|mimes:pdf,PDF',
         ]);
-        // dd($request->all());
+    //    dd($request->all());
         $add_etudiant = new Etudiant;
         $cniName = '';
         $imageName = '';
@@ -54,10 +57,16 @@ class EtudiantController extends Controller
         $add_etudiant->identite = $cniName;
         $add_etudiant->diplome = $diplomeName;
         $add_etudiant->commune_id = $request->commune;
+        $add_etudiant->etablissement = $request->etablissement;
+        $add_etudiant->status = $request->status;
+        $add_etudiant->filliere = $request->filliere;
         $add_etudiant->save();
-        $add_etudiant->faculties()->sync($request->filliere);
-        $add_etudiant->etablissements()->sync($request->etablissement);
-        return back();
+          return redirect()->route('index',$add_etudiant)->with([
+            "existe" => "existe",
+            "name" => "$add_etudiant->name",
+            "remercie" => "Votre inscription a bien ete enregistre et L'AEERK vous en remercie .<br>
+            Le Bureau,"
+        ]);
      
     }
 }

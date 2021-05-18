@@ -27,6 +27,9 @@ class CreateEtudiantsTable extends Migration
             $table->string('image');
             $table->string('identite')->unique();
             $table->integer('commune_id');
+            $table->string('etablissement');
+            $table->string('status');
+            $table->string('filliere');
             $table->timestamps();
         });
     }

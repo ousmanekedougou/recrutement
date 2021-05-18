@@ -4,41 +4,24 @@
 @section('headsection')
 <link rel="stylesheet" href="{{asset('admin/bower_components/select2/dist/css/select2.min.css')}}">
 @endsection
-    		<!-- start banner Area -->
-            <!-- <section class="banner-area relative" id="home">
-				<div class="overlay overlay-bg"></div>	
-				<div class="container">
-					<div class="row fullscreen d-flex align-items-center justify-content-between">
-						<div class="banner-content col-lg-9 col-md-12">
-							<div class="row">
-								<div class="col-lg-4"></div>
-								<div class="col-lg-8">
-								
-								</div>
-							</div>
-							<h1 class="text-uppercase">
-							Plateforme de codification
-							</h1>
-							<p class="pt-10 pb-10">
-								In the history of modern astronomy, there is probably no one greater leap forward than the building and launch of the space telescope known as the Hubble.
-							</p>
-							<a href="" class="primary-btn text-uppercase" style="border-radius: 5px;">Get Started</a>
-							
-						</div>										
-					</div>
-				</div>					
-			</section> -->
-			<!-- End banner Area -->
+    	
 
 			<section class="banner-area relative about-banner" id="home">	
 				<div class="overlay overlay-bg"></div>
-				<div class="container">				
+				<div class="container">	
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-6">
+							@include('user.message.index')
+						</div>
+						<div class="col-md-3"></div>
+					</div>			
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
 								Plateforme de recrutement		
 							</h1>	
-							<p class="text-white link-nav"><a href="/">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="courses.html"> </a></p>
+							<!-- <p class="text-white link-nav"><a href="/">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href=""> </a></p> -->
 						</div>	
 					</div>
 				</div>
@@ -93,21 +76,21 @@
 			<!-- End feature Area -->
 
 			<!-- Start info Area -->
-			<section class="popular-course-area section-gap" style="margin-bottom:0;">
+			<section class="popular-course-area section-gap" style="margin-bottom:0;margin-top:-60px;">
 				<div class="container">
 					<form action="{{ route('etudiant.store') }}" method="POST" enctype="multipart/form-data"  style="background-color:#fff;padding:20px;margin:3px;border-radius:8px;padding:20px;">
 						@csrf
 						<div class="row">
-							<div class="col-sm-4 d-flex justify-content-between">
+							<div class="col-sm-3 d-flex justify-content-between" style="border: 1px solid rgba(177, 171, 171, 0.301);margin-left:15px;padding-top:6px;">
 								<div class="switch-wrap d-flex justify-content-between">
 									<p class="label_form">Femme</p>
-									<div class="primary-switch ml-3 mr-3 mt-1">
+									<div class="primary-switch ml-2 mr-2 mt-1">
 										<input type="radio" name="genre" value="{{ old('genre') ?? 1 }}" class=" @error('genre') is-invalid @enderror" id="success-switch">
 										<label class="label_form" for="success-switch"></label>
 									</div>
 								</div>
-								<div class="switch-wrap d-flex justify-content-between">
-									<p class="ml-4 label_form">Homme</p>
+								<div class="switch-wrap d-flex justify-content-between" >
+									<p class="ml-3 label_form">Homme</p>
 									<div class="confirm-switch ml-3 mt-1">
 										<input type="radio" value="{{ old('genre') ?? 2 }}" class=" @error('genre') is-invalid @enderror" name="genre" id="info-switch">
 										<label class="label_form" for="info-switch"></label>
@@ -123,7 +106,7 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="mt-10">
-									<label class="label_form" for="nom"> Prenom et nom</label>
+									<label class="label_form" for="name"> Prenom et nom</label>
 									<input type="text"  value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Votre prenom et nom" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Votre prenom et nom'" required class="single-input">
 									@error('name')
 										<span class="invalid-feedback" role="alert">
@@ -212,62 +195,59 @@
 							</div>
 							<div class="col-md-6">
 
-							<div class="input-group-icon mt-10">
-									<label class="label_form" for="etablissement">Votre etablissement</label>
-									<div class="form-select">
-										<select  class="form-control select2 @error('etablissement') is-invalid @enderror" multiple="multiple" data-placeholder="Selectionne votre ou vos etablissement(s)" name="etablissement[]">
-												<option desabled> Publique </option>
-											@foreach($etablissements as $etablissement)
-												@if($etablissement->status == 1)
-													<option style="margin-left: 20px;" value="{{$etablissement->id}}"> => {{$etablissement->name}}</option>
-												@endif
-											@endforeach
+							
 
-											<option desabled>Privee</option>
-											@foreach($etablissements as $etablissement)
-												@if($etablissement->status == 2)
-													<option value="{{$etablissement->id}}">{{$etablissement->name}}</option>
-												@endif
-											@endforeach
-										</select>
-										@error('etablissement')
-											<span class="invalid-feedback" role="alert">
-												<strong class="message_error">{{ $message }}</strong>
-											</span>
-										@enderror
+								<div class="mt-10">
+									<label class="label_form" for="etablissement"> Votre etablissement</label>
+									<input type="text"  value="{{ old('etablissement') }}" class="form-control @error('etablissement') is-invalid @enderror" name="etablissement" placeholder="Votre etablissement" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Votre etablissement'" required class="single-input">
+									@error('etablissement')
+										<span class="invalid-feedback" role="alert">
+											<strong class="message_error">{{ $message }}</strong>
+										</span>
+									@enderror
+								</div>
+
+								<div class="mt-10">
+									<label class="label_form"> Type de votre etablissement (publique/privee)</label>
+									<div class="row" style="border: 1px solid rgba(177, 171, 171, 0.301);margin-left:1px;margin-right:2px;padding-top:6px;">
+										<div class="col-sm-4 d-flex justify-content-between" >
+											<div class="switch-wrap d-flex justify-content-between">
+												<p class="label_form">Publique</p>
+												<div class="primary-switch ml-3 mr-2 mt-1">
+													<input type="radio" name="status" value="Publique" class=" @error('status') is-invalid @enderror" id="default-switch">
+													<label class="label_form" for="default-switch"></label>
+												</div>
+											</div>
+											<div class="switch-wrap d-flex justify-content-between">
+												<p class="ml-2 label_form">Privee</p>
+												<div class="confirm-switch ml-2 mt-1">
+													<input type="radio" value="Privee" class=" @error('status') is-invalid @enderror" name="status" id="primary-switch">
+													<label class="label_form" for="primary-switch"></label>
+													@error('status')
+													<span class="invalid-feedback" role="alert">
+														<strong class="message_error">{{ $message }}</strong>
+													</span>
+													@enderror
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
-								
-								<div class="input-group-icon mt-10">
-									<label class="label_form" for="filliere">Votre filliere</label>
-									<div class="form-select">
-										<select  class="form-control select2 @error('filliere') is-invalid @enderror" multiple="multiple" data-placeholder="Selectionne votre ou vos filliere(s)" name="filliere[]">
-											<option desabled> Publique </option>
-											@foreach($fillieres as $filliere)
-												@if($filliere->status == 1)
-													<option style="margin-left: 20px;" value="{{$filliere->id}}"> => {{$filliere->name}}</option>
-												@endif
-											@endforeach
 
-											<option desabled>Privee</option>
-											@foreach($fillieres as $filliere)
-												@if($filliere->status == 2)
-													<option value="{{$filliere->id}}">{{$filliere->name}}</option>
-												@endif
-											@endforeach
-										</select>
-										@error('filliere')
-											<span class="invalid-feedback" role="alert">
-												<strong class="message_error">{{ $message }}</strong>
-											</span>
-										@enderror
-									</div>
+								<div class="mt-10">
+									<label class="label_form" for="filliere"> Votre filliere</label>
+									<input type="text"  value="{{ old('filliere') }}" class="form-control @error('filliere') is-invalid @enderror" name="filliere" placeholder="Votre filliere" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Votre filliere'" required class="single-input">
+									@error('filliere')
+										<span class="invalid-feedback" role="alert">
+											<strong class="message_error">{{ $message }}</strong>
+										</span>
+									@enderror
 								</div>
 
 								
 
 								<div class="mt-10">
-									<label class="label_form" for="cni">Photocopie de votre carte d'identite en pdf</label>
+									<label class="label_form" for="cni">Photocopie de votre carte d'identite national en pdf</label>
 									<input type="file" name="cni" value="{{ old('cni') }}" class="form-control @error('cni') is-invalid @enderror" placeholder="" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" required class="single-input">
 									@error('cni')
 										<span class="invalid-feedback" role="alert">
@@ -275,17 +255,9 @@
 										</span>
 									@enderror
 								</div>
+							
 								<div class="mt-10">
-									<label class="label_form" for="image">Votre image en Format (CNI)</label>
-									<input type="file" name="image" value="{{ old('image') }}" class="form-control @error('image') is-invalid @enderror" placeholder="" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" required class="single-input">
-									@error('image')
-										<span class="invalid-feedback" role="alert">
-											<strong class="message_error">{{ $message }}</strong>
-										</span>
-									@enderror
-								</div>
-								<div class="mt-10">
-									<label class="label_form" for="curiculum">Photocopie de votre cv en pdf</label>
+									<label class="label_form" for="curiculum">Photocopie de votre Curriculum Vitae en pdf</label>
 									<input type="file" name="curiculum" value="{{ old('curiculum') }}" class="form-control @error('curiculum') is-invalid @enderror" placeholder="" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" required class="single-input">
 									@error('curiculum')
 										<span class="invalid-feedback" role="alert">
@@ -298,6 +270,16 @@
 									<label class="label_form" for="diplome">Votre dernier diplome ou attestation obtenu en pdf</label>
 									<input type="file" name="diplome" value="{{ old('diplome') }}" class="form-control @error('diplome') is-invalid @enderror" placeholder="" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" required class="single-input">
 									@error('diplome')
+										<span class="invalid-feedback" role="alert">
+											<strong class="message_error">{{ $message }}</strong>
+										</span>
+									@enderror
+								</div>
+
+								<div class="mt-10">
+									<label class="label_form" for="image">Votre image en Format (CNI)</label>
+									<input type="file" name="image" value="{{ old('image') }}" class="form-control @error('image') is-invalid @enderror" placeholder="" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" required class="single-input">
+									@error('image')
 										<span class="invalid-feedback" role="alert">
 											<strong class="message_error">{{ $message }}</strong>
 										</span>
