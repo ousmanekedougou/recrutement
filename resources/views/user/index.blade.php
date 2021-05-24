@@ -18,10 +18,10 @@
 					</div>			
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
-							<h1 class="text-white">
-								Plateforme de recrutement		
+							<h1 class="text-white text-uppercase">
+								Plateforme de l'aeerk		
 							</h1>	
-							<!-- <p class="text-white link-nav"><a href="/">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href=""> </a></p> -->
+							<p class="text-white link-nav"><a class="btn btn-primary btn-sm text-uppercase" href="#form">S'inscrire ici <i class="fa fa-plus"></i></a> </p>
 						</div>	
 					</div>
 				</div>
@@ -76,7 +76,7 @@
 			<!-- End feature Area -->
 
 			<!-- Start info Area -->
-			<section class="popular-course-area section-gap" style="margin-bottom:0;margin-top:-60px;">
+			<section class="popular-course-area section-gap" style="margin-bottom:0;margin-top:-60px;" id="form">
 				<div class="container">
 					<form action="{{ route('etudiant.store') }}" method="POST" enctype="multipart/form-data"  style="background-color:#fff;padding:20px;margin:3px;border-radius:8px;padding:20px;">
 						@csrf

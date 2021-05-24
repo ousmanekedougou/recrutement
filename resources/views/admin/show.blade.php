@@ -74,7 +74,9 @@
                           <td>{{ $show_etudiant->naissance }}</td>
                           <td>{{ $show_etudiant->lieu }}</td>
                           <td>{{ $show_etudiant->commune->name }} ({{ $show_etudiant->commune->departement->name }}) </td>
-                          <td>
+                          <td>{{ $show_etudiant->etablissement }}</td>
+                          <td>{{ $show_etudiant->filliere }}</td>
+                          <!-- <td>
                             @foreach($show_etudiant->etablissements as $etud_etab)
                               {{$etud_etab->name}},
                             @endforeach
@@ -83,7 +85,7 @@
                             @foreach($show_etudiant->faculties as $etud_fille)
                               {{$etud_fille->name}},
                             @endforeach
-                          </td>
+                          </td> -->
                          </tr>
                         </tbody>
                       </table>
