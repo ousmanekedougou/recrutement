@@ -21,7 +21,7 @@
 							<h1 class="text-white text-uppercase">
 								Plateforme de l'aeerk		
 							</h1>	
-							<p class="text-white link-nav"><a class="btn btn-primary btn-sm text-uppercase" href="#form">S'inscrire ici <i class="fa fa-plus"></i></a> </p>
+							<!-- <p class="text-white link-nav"><a class="btn btn-primary btn-sm text-uppercase" href="#form">S'inscrire ici <i class="fa fa-plus"></i></a> </p> -->
 						</div>	
 					</div>
 				</div>
@@ -31,7 +31,7 @@
 			<section class="feature-area">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-4">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 							<div class="single-feature">
 								<div class="title">
 									<h4>Mot du president</h4>
@@ -44,7 +44,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-4">
+						<!-- <div class="col-lg-4">
 							<div class="single-feature">
 								<div class="title">
 									<h4>Un contenu exemple</h4>
@@ -69,15 +69,18 @@
 									<a href="#">Voire</a>									
 								</div>
 							</div>
-						</div>												
+						</div>												 -->
 					</div>
 				</div>	
 			</section>
 			<!-- End feature Area -->
 
 			<!-- Start info Area -->
-			<section class="popular-course-area section-gap" style="margin-bottom:0;margin-top:-60px;" id="form">
+			<section class="popular-course-area section-gap" style="margin-bottom:0;margin-top:-70px;" id="form">
 				<div class="container">
+			<div class="title text-center">
+				<h4>Formulaire d'inscription</h4>
+			</div>
 					<form action="{{ route('etudiant.store') }}" method="POST" enctype="multipart/form-data"  style="background-color:#fff;padding:20px;margin:3px;border-radius:8px;padding:20px;">
 						@csrf
 						<div class="row">
@@ -194,9 +197,6 @@
 
 							</div>
 							<div class="col-md-6">
-
-							
-
 								<div class="mt-10">
 									<label class="label_form" for="etablissement"> Votre etablissement</label>
 									<input type="text"  value="{{ old('etablissement') }}" class="form-control @error('etablissement') is-invalid @enderror" name="etablissement" placeholder="Votre etablissement" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Votre etablissement'" required class="single-input">
