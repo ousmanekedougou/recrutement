@@ -34,7 +34,7 @@
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 							<div class="single-feature">
 								<div class="title">
-									<h4>Description de la portail</h4>
+									<h4>Description du portail</h4>
 								</div>
 								<div class="desc-wrap">
 									<p>

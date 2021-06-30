@@ -18,7 +18,7 @@
       <div class="">
         <div class="">
           <h3 class="box-title">Etablissement</h3>
-          <a  data-toggle="modal" data-id="#etablissement" data-name="etablissement" data-target="#modal-etablissement-add" class="col-lg-offset-5 btn btn-success" href="">Ajouter Une etablissement</a>
+          <a  data-toggle="modal" data-id="#etablissement" data-name="etablissement" data-target="#modal-etablissement-add" class="col-lg-offset-5 btn btn-success" href="">Ajouter Un etablissement</a>
          
         </div>
         <div class="box-body">
