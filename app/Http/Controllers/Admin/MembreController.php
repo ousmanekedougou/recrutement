@@ -99,9 +99,21 @@ class MembreController extends Controller
     public function update(Request $request, $id)
     {
         if (Auth::user()->isAdmin == 1) {
-            $request->status? : $request['status'] = 0 ;
-            $user = User::where('id',$id)->update($request->except('_token','_method'));
+            $admin = User::where('id',$id)->first();
+            if ($request->status == null) {
+                $admin->status = 0;
+            }else {
+                $admin->status = $request->status;
+            }
+            if ($request->admin == null) {
+                $admin->isAdmin = 0;
+            }else {
+                $admin->isAdmin = $request->admin;
+            }
+            $admin->save();
             return redirect()->route('membre.index')->with('success','La modification a ete enregistre');
+        }else {
+            return redirect()->route('admin.home');
         }
     }
 
