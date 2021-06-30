@@ -25,8 +25,11 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
+                @if(Auth::user()->image == null)
                 <img src="{{ asset('admin/dist/img/default-50x50.gif')}}" class="img-circle" alt="User Image">
-
+              @else 
+                <img src="{{ Storage::url(Auth::user()->image) }}" class="img-circle" alt="User Image">
+              @endif
                 <p>
                   {{ Auth::guard('web')->user()->name }} - admin
                   <small>Membre depuis {{ Auth::guard('web')->user()->created_at->toFormattedDateString() }}</small>
@@ -50,7 +53,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="" class="btn btn-default btn-flat">Profile</a>
+                  <a href="{{ route('membre.show',Auth::user()->id )}}" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                   <a 

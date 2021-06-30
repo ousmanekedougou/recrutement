@@ -34,13 +34,13 @@
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 							<div class="single-feature">
 								<div class="title">
-									<h4>Mot du president</h4>
+									<h4>Description de la portail</h4>
 								</div>
 								<div class="desc-wrap">
 									<p>
-										If you are a serious astronomy fanatic like a lot of us are, you can probably remember that one event.
+										Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ut quas alias aliquid pariatur autem odit fugit nobis cupiditate ipsa.
 									</p>
-									<a href="#">Voire</a>									
+									<!-- <a href="#">Voire</a>									 -->
 								</div>
 							</div>
 						</div>
@@ -162,9 +162,13 @@
 									<label class="label_form" for="commune">Votre commune</label>
 									<div class="form-select">
 										<select value="{{ old('commune') }}" class="form-control @error('commune') is-invalid @enderror" name="commune">
-											@foreach($communes as $commune)
-													<option style="margin-left: 20px;" value="{{$commune->id}}"> {{$commune->name}}</option>
-												
+											<option desable>Choisissez votre commune</option>
+											@foreach($departements as $dep)
+											<optgroup label="{{ $dep->name }}">
+												@foreach($dep->communes as $dep_com)
+													<option style="margin-left: 20px;" value="{{$dep_com->id}}"> {{$dep_com->name}}</option>
+												@endforeach
+											</optgroup>
 											@endforeach
 										</select>
 										@error('commune')

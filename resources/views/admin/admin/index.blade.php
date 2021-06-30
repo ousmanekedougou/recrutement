@@ -2,6 +2,7 @@
 
 @section('headsection')
 <link rel="stylesheet" href="{{asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+
 @endsection
 
 
@@ -28,7 +29,7 @@
           <div class="">
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="example1" class="table table-bordered table-striped .table-responsive">
                 <thead>
                 <tr class="bg-primary">
                   <th>S.No</th>
@@ -114,8 +115,16 @@
 <script src="admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script src="admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script>
-  $(function () {
+ $(function () {
     $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
   })
 </script>
 

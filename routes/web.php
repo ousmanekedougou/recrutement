@@ -23,3 +23,6 @@ Route::resource('/home', App\Http\Controllers\Admin\HomeController::class);
 Route::resource('/filliere', App\Http\Controllers\Admin\FilliereController::class);
 Route::resource('/etablissement', App\Http\Controllers\Admin\EtablissementController::class);
 Route::resource('/membre', App\Http\Controllers\Admin\MembreController::class);
+Route::put('/membre/{id}/update_info', [App\Http\Controllers\Admin\MembreController::class,'update_info'])->name('update_info');
+Route::put('/membre/{id}/update_password', [App\Http\Controllers\Admin\MembreController::class,'update_password'])->name('update_password');
+Route::put('/membre/{id}/update_image', [App\Http\Controllers\Admin\MembreController::class,'update_image'])->name('update_image');
