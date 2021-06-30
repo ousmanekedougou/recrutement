@@ -85,13 +85,10 @@
 
 
                         <div class="form-group">
-                                <div class=" checkbox">
-                                    <label class="col-form-label text-md-right"> <input type="checkbox" name="status" @if (old('status') == 1) 
-                                    checked
-                                    @endif 
-                                    
-                                    value="1" id=""><span class="text-bold">Status</span></label>
-                                </div>
+                          <div class=" checkbox">
+                            <label class="col-form-label text-md-right mr-3"> <input type="checkbox" name="status" value="1" id=""><span class="text-bold">Active</span></label>
+                            <label class="col-form-label text-md-right ml-3" style="margin-left: 20px;"> <input type="checkbox" name="admin" value="1" id=""><span class="text-bold">Admin</span></label>
+                          </div>
                         </div>
 
                       </div>

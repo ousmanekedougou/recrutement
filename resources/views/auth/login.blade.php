@@ -28,7 +28,7 @@
  </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-
+@include('includes.message')
     <form action="{{ route('login') }}" method="post">
         {{ csrf_field() }}
       <div class="form-group has-feedback">

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     /*
@@ -37,4 +38,41 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+     protected function credentials(Request $request)
+     {
+         $admin = User::where('email',$request->email)->first(); 
+         if($admin)
+         {
+
+             if($admin->status == 0)
+             {
+                 return ['email' => 'inactive','password' => 'Votre compte n\'est pas actif'];
+             }
+             else
+                {
+                    return ['email' => $request->email,'password' => $request->password,'status' => 1];
+                }
+        }
+        return $request->only($this->username(), 'password');
+     }
+
+
+    protected function sendFailedLoginResponse(Request $request)
+     {
+ 
+         $fields = $this->credentials($request);
+         if($fields['email'] == 'inactive')
+         {
+             $errors = $fields['password'];
+ 
+         }else{
+ 
+             $errors =  [$this->username() => trans('auth.failed')];
+ 
+            }
+            
+            return redirect()->back()->withInput($request->only($this->username()))->withErrors($errors);
+ 
+     }
 }

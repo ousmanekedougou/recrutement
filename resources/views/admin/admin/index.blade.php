@@ -19,8 +19,9 @@
       <div class="">
         <div class="box-header with-border">
           <h3 class="box-title">Administrateur</h3>
+          @if(Auth::user()->isAdmin == 1)
             <a class="col-lg-offset-5 btn btn-success pull-right" href="{{ route('register') }}">Ajouter Un Admin</a>
-          
+          @endif
         </div>
         <div class="box-body">
             <!-- debut de la table -->
@@ -34,8 +35,11 @@
                   <th>Prenom & Nom</th>
                   <th>email</th>
                   <th>phone</th>
+                  <th>Actif</th>
                   <th>Status</th>
+                  @if(Auth::user()->isAdmin == 1)
                   <th>Options</th>
+                  @endif
                 </tr>
                 </thead>
                 <tbody>
@@ -47,27 +51,30 @@
                   <td>{{ $admin->phone }}</td>
                   
                   <td>{{ $admin->status? 'Active' : 'Desactive' }}</td>
-                  <td class="text-center">
-                  <a href="{{ route('membre.edit',$admin->id) }}" class="mr-4"><i class="glyphicon glyphicon-edit"></i></a>
-         
-                  
-                    <form id="delete-form-{{$admin->id}}" method="post" action="{{ route('membre.destroy',$admin->id) }}" style="display:none">
-                    {{csrf_field()}}
-                    {{method_field('delete')}}
-                    </form>
-                  <a href="" class="ml-4" onclick="
-                    if(confirm('Etes vous sure de vouloire supprimer cet administrateur ?')){
+                  <td>{{ $admin->isAdmin? 'Admin' : 'User' }}</td>
+                    @if(Auth::user()->isAdmin == 1)
+                      <td class="text-center">
+                        <a href="{{ route('membre.edit',$admin->id) }}" class="mr-4"><i class="glyphicon glyphicon-edit"></i></a>
+            
+                      
+                        <form id="delete-form-{{$admin->id}}" method="post" action="{{ route('membre.destroy',$admin->id) }}" style="display:none">
+                        {{csrf_field()}}
+                        {{method_field('delete')}}
+                        </form>
+                        <a href="" class="ml-4" onclick="
+                        if(confirm('Etes vous sure de vouloire supprimer cet administrateur ?')){
 
-                    event.preventDefault();document.getElementById('delete-form-{{$admin->id}}').submit();
+                        event.preventDefault();document.getElementById('delete-form-{{$admin->id}}').submit();
 
-                    }else{
+                        }else{
 
-                      event.preventDefault();
+                          event.preventDefault();
 
-                    }
-                    
-                    "><i class="glyphicon glyphicon-trash text-danger"></i></a>
-                    </td>
+                        }
+                        
+                        "><i class="glyphicon glyphicon-trash text-danger"></i></a>
+                      </td>
+                    @endif
                   </tr>
                   @endforeach
                 </tbody>
@@ -77,8 +84,11 @@
                    <th>Prenom & Nom</th>
                   <th>email</th>
                   <th>phone</th>
+                   <th>Actif</th>
                   <th>Status</th>
+                  @if(Auth::user()->isAdmin == 1)
                   <th>Options</th>
+                  @endif
                 </tr>
                 </tfoot>
               </table>

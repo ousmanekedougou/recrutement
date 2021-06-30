@@ -54,7 +54,25 @@
                                 checked
                                 @endif 
                                 
-                                style="ml-3" value="1" id="">Status</label>
+                                style="ml-3" value="1" id="">
+                                @if($admins->status == 1)
+                                  Compte Actif
+                                @else 
+                                  Compte desactiver
+                                @endif
+                                </label>
+
+                                <label style="margin-left:20px;"> <input type="checkbox" name="admin" @if($admins->isAdmin == 1 )
+                                  checked
+                                @endif 
+                                
+                                style="ml-3" value="1" id="" >
+                                  @if($admins->status == 1)
+                                  Un administrateur
+                                @else 
+                                  Un utilisateur
+                                @endif
+                                </label>
                             </div>
                       </div>
 

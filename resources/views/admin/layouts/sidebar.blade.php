@@ -27,10 +27,12 @@
       
 
         <li class="header">LABELS</li>
-        <li><a href="{{ route('filliere.index') }}"><i class="fa fa-circle-o text-red"></i> <span>Filliers</span></a></li>
-        <li><a href="{{ route('etablissement.index') }}"><i class="fa fa-circle-o text-yellow"></i> <span>Etablissement</span></a></li>
-        <li><a href="{{ route('home.index') }}"><i class="fa fa-circle-o text-red"></i> <span>Etudiants</span></a></li>
-        <li><a href="{{ route('membre.index') }}"><i class="fa fa-circle-o"></i> <span>Membres</span></a></li>
+        <li><a href="{{ route('filliere.index') }}"><i class="fa fa-file-text"></i> <span>Filliers</span></a></li>
+        <li><a href="{{ route('etablissement.index') }}"><i class="fa fa-university"></i> <span>Etablissement</span></a></li>
+        <li><a href="{{ route('home.index') }}"><i class="fa fa-graduation-cap"></i> <span>Etudiants</span></a></li>
+        @if(Auth::user()->isAdmin == 1)
+        <li><a href="{{ route('membre.index') }}"><i class="fa fa-user"></i> <span>Membres</span></a></li>
+        @endif
         
 
 

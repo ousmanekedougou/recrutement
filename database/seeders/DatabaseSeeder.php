@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'aeerk@gmail.com',
             'phone' => '77000000',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'status' => '1'
+            'status' => '1',
+            'isAdmin' => '1'
         ]);
 
           $departements = [

@@ -19,7 +19,7 @@
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white text-uppercase">
-								Plateforme de l'aeerk		
+								Portail de l'aeerk		
 							</h1>	
 							<!-- <p class="text-white link-nav"><a class="btn btn-primary btn-sm text-uppercase" href="#form">S'inscrire ici <i class="fa fa-plus"></i></a> </p> -->
 						</div>	
