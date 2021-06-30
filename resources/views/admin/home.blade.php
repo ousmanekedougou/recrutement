@@ -24,23 +24,23 @@
     <!-- Main content -->
     <section class="content">
       <div class="box-body">
-        <div class="row text-center">
-            <div class="margin">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-default">Toute les fillieres</button>
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu">
-                    @foreach(App\Models\User\Faculty::all() as $faculty)
-                      <li><a href="{{ route('home.index', ['filliere'
-												=> $faculty->slug]) }}">{{$faculty->name}}</a></li>
-                    @endforeach
-                  </ul>
-                </div>
-              </div>
-        </div>
+        {{--<div class="row text-center">
+          <div class="margin">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default">Toute les fillieres</button>
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                @foreach(App\Models\User\Faculty::all() as $faculty)
+                  <li><a href="{{ route('home.index', ['filliere'
+                    => $faculty->slug]) }}">{{$faculty->name}}</a></li>
+                @endforeach
+              </ul>
+            </div>
+          </div>
+        </div>--}}
           <!-- debut de la table -->
         <div class="nav-tabs-custom">
           <div class="tab-content">
