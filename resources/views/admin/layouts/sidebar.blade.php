@@ -29,6 +29,7 @@
         <li><a href="{{ route('filliere.index') }}"><i class="fa fa-file-text"></i> <span>Filliers</span></a></li>
         <li><a href="{{ route('etablissement.index') }}"><i class="fa fa-university"></i> <span>Etablissement</span></a></li>
         <li><a href="{{ route('home.index') }}"><i class="fa fa-graduation-cap"></i> <span>Etudiants</span></a></li>
+        <li><a href="{{ route('localite.index') }}"><i class="fa fa-street-view"></i> <span>Localite</span></a></li>
         @if(Auth::user()->isAdmin == 1)
         <li><a href="{{ route('membre.index') }}"><i class="fa fa-user"></i> <span>Membres</span></a></li>
         @endif
