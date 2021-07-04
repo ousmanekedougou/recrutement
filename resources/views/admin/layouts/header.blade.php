@@ -19,7 +19,11 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{ asset('admin/dist/img/default-50x50.gif')}}" class="user-image" alt="User Image">
+                @if(Auth::user()->image == null)
+                  <img src="{{ asset('admin/dist/img/default-50x50.gif')}}" class="user-image" alt="User Image">
+                @else 
+                  <img src="{{ Storage::url(Auth::user()->image) }}" class="user-image" alt="User Image">
+                @endif
               <span class="hidden-xs">{{ Auth::guard('web')->user()->name }}</span>
             </a>
             <ul class="dropdown-menu">

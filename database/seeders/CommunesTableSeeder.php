@@ -2,32 +2,29 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use Illuminate\Database\Seeder;
 use App\Models\User\Commune;
 use App\Models\User\Departement;
-use Illuminate\Database\Seeder;
-
-class DatabaseSeeder extends Seeder
+use App\Models\User;
+class CommunesTableSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
         User::create([
             'name' => 'Ousmane Diallo',
-            'email' => 'aeerk@gmail.com',
-            'phone' => '77000000',
+            'email' => 'ousmanekedougou@gmail.com',
+            'phone' => '77000001',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'status' => '1',
             'isAdmin' => '1'
         ]);
 
-          $departements = [
+        $departements = [
              'Kédougou','Salémata','Saraya'
          ];
           foreach ($departements as $dep) { 
@@ -59,8 +56,8 @@ class DatabaseSeeder extends Seeder
             'Bembou' => '3',
             'Khossanto' => '3',
             'Missirah Sirimana' => '3',
-            'Sabodala'  => '3',
-            'Medina Bafée'  => '3'
+            'Sabodala' => '3',
+            'Medina Bafée' => '3'
 
             
         ];

@@ -64,7 +64,7 @@
                   <td class="text-center">{{ $home->name }}</td>
                   <td class="text-center">{{ $home->email }}</td>
                   <td class="text-center">{{ $home->phone }}</td>
-                  <td class="text-center"><a href="{{ route('home.show',$home->id) }}"><i class="glyphicon glyphicon-edit"></i></a>
+                  <td class="text-center"><a href="{{ route('home.show',$home->id) }}"><i class="fa fa-eye"></i></a>
               
                     <form id="delete-form-{{$home->id}}" method="post" action="{{ route('home.destroy',$home->id) }}" style="display:none">
                     {{csrf_field()}}
@@ -81,7 +81,7 @@
 
                     }
                     
-                    "><i class="glyphicon glyphicon-trash text-danger"></i></a>
+                    "><i class="fa fa-trash text-danger"></i></a>
                     </td>
                   </tr>
                   @endforeach

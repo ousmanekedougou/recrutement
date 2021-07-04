@@ -28,7 +28,7 @@ class CreateEtudiantsTable extends Migration
             $table->string('identite')->unique();
             $table->integer('commune_id');
             $table->string('etablissement');
-            $table->string('status');
+            $table->boolean('status')->default(0);
             $table->string('filliere');
             $table->timestamps();
         });

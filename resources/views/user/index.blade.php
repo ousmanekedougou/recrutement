@@ -3,6 +3,12 @@
 
 @section('headsection')
 <link rel="stylesheet" href="{{asset('admin/bower_components/select2/dist/css/select2.min.css')}}">
+<style>
+	.feature-area{
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+</style>
 @endsection
     	
 
@@ -31,45 +37,34 @@
 			<section class="feature-area">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+							<div class="single-feature">
+								<div class="desc-wrap">
+									<p>
+										<img src="{{ asset('user/img/3ccs.jpg') }}" alt="" width="100%;height:auto;" srcset="">
+									</p>								
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
 							<div class="single-feature">
 								<div class="title">
 									<h4>Description du portail</h4>
 								</div>
-								<div class="desc-wrap">
+								<div class="desc-wrap text-left">
 									<p>
 										Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ut quas alias aliquid pariatur autem odit fugit nobis cupiditate ipsa.
+									</p>
+									<p>
+										Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ut quas alias aliquid pariatur autem odit fugit nobis cupiditate ipsa.
+									</p>
+									<p>
+										Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ut quas alias aliquid pariatur autem odit fugit nobis cupiditate ips.
 									</p>
 									<!-- <a href="#">Voire</a>									 -->
 								</div>
 							</div>
 						</div>
-						<!-- <div class="col-lg-4">
-							<div class="single-feature">
-								<div class="title">
-									<h4>Un contenu exemple</h4>
-								</div>
-								<div class="desc-wrap">
-									<p>
-										For many of us, our very first experience of learning about the celestial bodies begins when we saw our first.
-									</p>
-									<a href="#">Voire</a>									
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-feature">
-								<div class="title">
-									<h4>Un contenu exemple</h4>
-								</div>
-								<div class="desc-wrap">
-									<p>
-										If you are a serious astronomy fanatic like a lot of us are, you can probably remember that one event.
-									</p>
-									<a href="#">Voire</a>									
-								</div>
-							</div>
-						</div>												 -->
 					</div>
 				</div>	
 			</section>
@@ -78,9 +73,9 @@
 			<!-- Start info Area -->
 			<section class="popular-course-area section-gap" style="margin-bottom:0;margin-top:-70px;" id="form">
 				<div class="container">
-			<div class="title text-center">
-				<h4>Formulaire d'inscription</h4>
-			</div>
+					<div class="title text-center">
+						<h4>Formulaire d'inscription</h4>
+					</div>
 					<form action="{{ route('etudiant.store') }}" method="POST" enctype="multipart/form-data"  style="background-color:#fff;padding:20px;margin:3px;border-radius:8px;padding:20px;">
 						@csrf
 						<div class="row">
@@ -218,14 +213,14 @@
 											<div class="switch-wrap d-flex justify-content-between">
 												<p class="label_form">Publique</p>
 												<div class="primary-switch ml-3 mr-2 mt-1">
-													<input type="radio" name="status" value="Publique" class=" @error('status') is-invalid @enderror" id="default-switch">
+													<input type="radio" name="status" value="{{old('status') ?? 0}}" class=" @error('status') is-invalid @enderror" id="default-switch">
 													<label class="label_form" for="default-switch"></label>
 												</div>
 											</div>
 											<div class="switch-wrap d-flex justify-content-between">
 												<p class="ml-2 label_form">Privee</p>
 												<div class="confirm-switch ml-2 mt-1">
-													<input type="radio" value="Privee" class=" @error('status') is-invalid @enderror" name="status" id="primary-switch">
+													<input type="radio" value="{{old('status') ?? 1}}" class=" @error('status') is-invalid @enderror" name="status" id="primary-switch">
 													<label class="label_form" for="primary-switch"></label>
 													@error('status')
 													<span class="invalid-feedback" role="alert">
@@ -305,7 +300,7 @@
 			<!-- End info Area -->
 
 			<!-- Start info Area -->
-			<!-- <section class="popular-course-area section-gap" style="margin-bottom: -150px;">
+			{{-- <section class="popular-course-area section-gap" style="margin-bottom: -150px;">
 				<div class="container">
 					<div class="row" style="background-color:#fff;padding:20px;margin:3px;border-radius:8px;">
 						<div class="col-lg-5 info-area-left text-center">
@@ -324,7 +319,7 @@
 						</div>
 					</div>
 				</div>	
-			</section> -->
+			</section> --}}
 			<!-- End info Area -->
 			
 
