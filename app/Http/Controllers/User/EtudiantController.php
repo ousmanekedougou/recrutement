@@ -14,7 +14,7 @@ class EtudiantController extends Controller
             'genre' => 'required',
             'name' => 'required|string',
             'email' => 'required|email|unique:etudiants',
-            'phone' => 'required|unique:etudiants|numeric|regex:/^([0-9\s\-\+\(\)]*)$/|between:9,13',
+            'phone' => 'required|unique:etudiants|numeric|regex:/^([0-9\s\-\+\(\)]*)$/',
             'date' => 'required|string',
             'lieu' => 'required|string',
             'niveau' => 'required|string',
