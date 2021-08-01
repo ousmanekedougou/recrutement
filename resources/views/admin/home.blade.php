@@ -68,7 +68,7 @@
                   <td class="text-center"><a href="{{ route('home.show',$home->id) }}"><i class="fa fa-eye"></i></a>
               
                   <a data-toggle="modal" data-target="#modal-default-delete-{{$home->id}}"><i class="fa fa-trash text-danger"></i></a>
-                     <div class="modal fade" id="modal-default-delete-{{$home->id}}">
+                    <div class="modal fade" id="modal-default-delete-{{$home->id}}">
                       <div class="modal-dialog modal-sm">
                         <div class="modal-content">
                           <div class="modal-header">

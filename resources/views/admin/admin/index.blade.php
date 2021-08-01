@@ -62,18 +62,33 @@
                         {{csrf_field()}}
                         {{method_field('delete')}}
                         </form>
-                        <a href="" class="ml-4" onclick="
-                        if(confirm('Etes vous sure de vouloire supprimer cet administrateur ?')){
-
-                        event.preventDefault();document.getElementById('delete-form-{{$admin->id}}').submit();
-
-                        }else{
-
-                          event.preventDefault();
-
-                        }
-                        
-                        "><i class="glyphicon glyphicon-trash text-danger"></i></a>
+                        <a href=""  data-toggle="modal" data-target="#modal-default-delete-{{$admin->id}}" class="ml-4" ><i class="glyphicon glyphicon-trash text-danger"></i></a>
+                        <div class="modal fade" id="modal-default-delete-{{$admin->id}}">
+                          <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">Suppression d'etudiant</h4>
+                              </div>
+                              <div class="modal-body">
+                                <p>
+                                  Etes vous sure de voloire supprimer cet etudiant
+                                </p>
+                              <form action="{{ route('membre.destroy',$admin->id) }}" method="post" style="display:none;">
+                                {{csrf_field()}}
+                                {{ method_field('DELETE') }}
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Fermer</button>
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                              </div>
+                              </form>
+                            </div>
+                            <!-- /.modal-content -->
+                          </div>
+                          <!-- /.modal-dialog -->
+                        </div>
                       </td>
                     @endif
                   </tr>
