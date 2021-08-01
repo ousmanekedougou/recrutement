@@ -14,11 +14,11 @@
  
  @show
 
+	{{--
   @include('user/layouts/footer')
-
+--}}
 @section('footersection')
 @show
-
 </body>
 
 </html>

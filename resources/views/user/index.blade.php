@@ -32,7 +32,7 @@
 					</div>
 				</div>
 			</section>
-
+	{{--
 			<!-- Start feature Area -->
 			<section class="feature-area">
 				<div class="container">
@@ -298,7 +298,7 @@
 				</div>	
 			</section>
 			<!-- End info Area -->
-
+--}}
 			<!-- Start info Area -->
 			{{-- <section class="popular-course-area section-gap" style="margin-bottom: -150px;">
 				<div class="container">
