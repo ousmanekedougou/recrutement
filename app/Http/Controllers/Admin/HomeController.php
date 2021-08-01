@@ -174,6 +174,7 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Etudiant::find($id)->delete();
+        return back()->with('success','Cet etudiant a ete supprimer');
     }
 }

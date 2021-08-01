@@ -4,6 +4,7 @@
 
 @section('headsection')
 <link rel="stylesheet" href="{{asset('admin/dist/css/skins/_all-skins.min.css')}}">
+<link rel="stylesheet" href="{{ asset('admin/dist/css/table.css') }}">
 @endsection
 
 
@@ -63,7 +64,7 @@
 
                   <!-- .user-block -->
                   <div class="user-block">
-                      <table class="table">
+                      <table class="table responsive-table">
                         <tbody>
                          <tr>
                            <th>Date de naissance</th>
@@ -492,5 +493,9 @@
 
 @endsection
 
+
+@section('footersection')
+<script src="{{ asset('admin/dist/js/table.js') }}"></script>
+@endsection
 
 <!-- on s'est arreter a la 7eme minine de la 6eme video -->

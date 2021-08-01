@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('headsection')
 <link rel="stylesheet" href="{{asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{ asset('admin/dist/css/table.css') }}">
 @endsection
 @section('main-content')
 
@@ -45,7 +46,7 @@
         <div class="nav-tabs-custom">
           <div class="tab-content">
             <div class="active tab-pane" id="activity">
-              <table id="example1" class="table text-center table-bordered table-striped">
+              <table id="example1" class="table text-center responsive-table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th class="text-center">Num</th>
@@ -66,22 +67,33 @@
                   <td class="text-center">{{ $home->phone }}</td>
                   <td class="text-center"><a href="{{ route('home.show',$home->id) }}"><i class="fa fa-eye"></i></a>
               
-                    <form id="delete-form-{{$home->id}}" method="post" action="{{ route('home.destroy',$home->id) }}" style="display:none">
-                    {{csrf_field()}}
-                    {{method_field('delete')}}
-                    </form>
-                  <a href="" onclick="
-                    if(confirm('Etes Vous Sur De Supprimer Cette Categorie ?')){
-
-                    event.preventDefault();document.getElementById('delete-form-{{$home->id}}').submit();
-
-                    }else{
-
-                      event.preventDefault();
-
-                    }
-                    
-                    "><i class="fa fa-trash text-danger"></i></a>
+                  <a data-toggle="modal" data-target="#modal-default-delete-{{$home->id}}"><i class="fa fa-trash text-danger"></i></a>
+                     <div class="modal fade" id="modal-default-delete-{{$home->id}}">
+                      <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Suppression d'etudiant</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>
+                              Etes vous sure de voloire supprimer cet etudiant
+                            </p>
+                          <form action="{{ route('home.destroy',$home->id) }}" method="post" style="display:none;">
+                            {{csrf_field()}}
+                            {{ method_field('DELETE') }}
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Fermer</button>
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                          </div>
+                          </form>
+                        </div>
+                        <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                    </div>
                     </td>
                   </tr>
                   @endforeach
@@ -133,5 +145,5 @@
     })
   })
 </script>
-
+<script src="{{ asset('admin/dist/js/table.js') }}"></script>
 @endsection
